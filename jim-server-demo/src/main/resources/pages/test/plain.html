@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>plain测试</title>
+</head>
+<body>
+    post<br>
+    <form action="/test/plain" method="post" enctype="text/plain">
+    <textarea name="before">
+    {"name":"tan", "id":1245555}
+    </textarea><br><br>
+    <input type="submit" value="提 交" />
+    </form>
+    
+    <br>pos：no namet<br>
+    <form action="/test/plain" method="post" enctype="text/plain">
+    <textarea name="">
+    {"name":"tan", "id":1245555}
+    </textarea><br><br>
+    <input type="submit" value="提 交" />
+    </form>
+    
+    
+    <br>get<br>
+    <form action="/test/plain" method="get" enctype="text/plain">
+    <textarea name="before">
+    {"name":"tan", "id":1245555}
+    </textarea><br><br>
+    <input type="submit" value="提 交" />
+    </form>
+    
+    
+    
+    <br>get：no name<br>
+    <form action="/test/plain" method="get" enctype="text/plain">
+    <textarea>
+    {"name":"tan", "id":1245555}
+    </textarea><br><br>
+    <input type="submit" value="提 交" />
+    </form>
+</body>
+</html>

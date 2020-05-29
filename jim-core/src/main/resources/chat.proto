@@ -1,0 +1,80 @@
+//1、连接服务器
+//2、鉴权
+//3、登录（可免）
+//4、进入群组（可免）
+//5、获取在线列表
+//6、聊天
+syntax = "proto3";
+//package tio;
+// 引入外部的proto对象
+//import "google/protobuf/any.proto";
+option java_package = "org.tio.im.common.packets";  //设置java对应的package
+option java_multiple_files = true;                           //建议设置为true，这样会每个对象放在一个文件中，否则所有对象都在一个java文件中
+//设备类型
+enum DeviceType {
+	DEVICE_TYPE_UNKNOW = 0;
+	DEVICE_TYPE_PC = 1;             //PC
+	DEVICE_TYPE_ANDROID = 2;        //安卓
+	DEVICE_TYPE_IOS = 3;            //IOS
+}
+
+enum Command {
+	COMMAND_UNKNOW = 0;
+
+	COMMAND_HANDSHAKE_REQ = 1; //握手请求，含http的websocket握手请求
+	COMMAND_HANDSHAKE_RESP = 2; //握手响应，含http的websocket握手响应
+
+	COMMAND_AUTH_REQ = 3; //鉴权请求
+	COMMAND_AUTH_RESP = 4; // 鉴权响应
+	
+	COMMAND_LOGIN_REQ = 5; //登录请求
+	COMMAND_LOGIN_RESP = 6; //登录响应
+
+	COMMAND_JOIN_GROUP_REQ = 7; //申请进入群组
+	COMMAND_JOIN_GROUP_RESP = 8; //申请进入群组响应
+	COMMAND_JOIN_GROUP_NOTIFY_RESP = 9; //进入群组通知
+	COMMAND_EXIT_GROUP_NOTIFY_RESP = 10; //退出群组通知
+
+	COMMAND_CHAT_REQ = 11; //聊天请求
+	COMMAND_CHAT_RESP = 12; //聊天响应
+
+	COMMAND_HEARTBEAT_REQ = 13; //心跳请求
+
+	COMMAND_CLOSE_REQ = 14; //关闭请求
+
+	COMMAND_CANCEL_MSG_REQ = 15; //发出撤消消息指令(管理员可以撤消所有人的消息，自己可以撤消自己的消息)
+	COMMAND_CANCEL_MSG_RESP = 16; //收到撤消消息指令
+	
+	COMMAND_GET_USER_REQ = 17;//获取用户信息;
+	COMMAND_GET_USER_RESP = 18;//获取用户信息响应;
+}
+
+/**
+ * 加入群组申请的结果
+ */
+enum JoinGroupResult {
+	JOIN_GROUP_RESULT_UNKNOW = 0;//不允许进入，原因为其它
+	JOIN_GROUP_RESULT_OK = 1;//允许进入
+	JOIN_GROUP_RESULT_NOT_EXIST = 2;//组不存在
+	JOIN_GROUP_RESULT_GROUP_FULL = 3;//组满
+	JOIN_GROUP_RESULT_IN_BACKLIST = 4;//在黑名单中
+	JOIN_GROUP_RESULT_TAKEOUTED = 5;//被踢
+}
+
+
+/**
+ * 聊天类型
+ */
+enum ChatType {
+	CHAT_TYPE_UNKNOW = 0;//未知
+	CHAT_TYPE_PUBLIC = 1;//公聊
+	CHAT_TYPE_PRIVATE = 2;//私聊
+}
+enum MsgType {
+	MSG_TYPE_TEXT = 0;//文本
+	MSG_TYPE_IMG = 1;//图片
+	MSG_TYPE_VOICE= 2;//语音
+	MSG_TYPE_VIDEO = 3;//视频
+	MSG_TYPE_MUSIC = 4;//音乐
+	MSG_TYPE_NEWS = 5;//图文
+}
