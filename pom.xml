@@ -55,7 +55,7 @@
         <commons-io.version>2.5</commons-io.version>
         <commons-lang3.version>3.6</commons-lang3.version>
         <commons-codec.version>1.10</commons-codec.version>
-        <commons-compress.version>1.14</commons-compress.version>
+        <commons-compress.version>1.21</commons-compress.version>
         <fastjson.version>1.2.35</fastjson.version>
         <testng.version>6.11</testng.version>
         <hutool.version>4.0.10</hutool.version>
