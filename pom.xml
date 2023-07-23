@@ -59,7 +59,7 @@
         <fastjson.version>1.2.35</fastjson.version>
         <testng.version>6.11</testng.version>
         <hutool.version>4.0.10</hutool.version>
-        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <jedis.version>2.7.3</jedis.version>
         <redisson.version>3.7.0</redisson.version>
         <j2cache.version>2.3.21-release</j2cache.version>
